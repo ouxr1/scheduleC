@@ -1,129 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emploi du Temps - Médecine Dentaire (Groupe C) - Corrigé</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emploi du Temps — Groupe C (Corrigé)</title>
   <style>
     :root{
-      --bg: #f7f9fb;
-      --card: #ffffff;
-      --accent: #0b74da;
-      --muted: #6b7280;
-      --accent-dark: #0a66b3;
+      --bg:#f6f8fb; --card:#ffffff; --accent:#0b74da; --muted:#556075;
+      --ok:#0f5132; --warn:#92400e;
     }
-    html,body{ height:100%; }
-    body {
-      font-family: "Segoe UI", Tahoma, Arial, "Noto Naskh Arabic", sans-serif;
-      margin: 0; padding: 24px; background: linear-gradient(180deg,var(--bg),#eef3f9 60%);
-      color: #111827; direction: ltr; -webkit-font-smoothing:antialiased;
-    }
-    .container{ max-width:980px; margin:18px auto; }
-    header{ text-align:center; padding:14px 8px; }
-    .logo{ height:72px; display:block; margin:0 auto 8px auto; }
-    h1{ margin:6px 0 2px; color:var(--accent-dark); font-size:20px; }
-    h2{ margin:0; color:var(--muted); font-weight:500; }
-
-    table{ width:100%; border-collapse:collapse; background:var(--card); box-shadow:0 6px 18px rgba(10,10,30,0.06); border-radius:10px; overflow:hidden; }
-    thead th{ background:linear-gradient(90deg,var(--accent) 0%, #2f8ed6 100%); color:white; padding:14px 10px; text-align:center; font-weight:600; }
-    th, td{ padding:12px 10px; border-bottom:1px solid #eef2f7; text-align:center; font-size:15px; }
-    tbody tr:nth-child(even){ background:#fbfdff; }
-    .time{ font-weight:700; color:var(--muted); font-size:13px; }
-    .slot{ padding:8px 10px; border-radius:8px; display:inline-block; min-width:120px; }
-    .empty{ color:#9ca3af; font-style:italic; }
-
-    /* colors for subjects */
-    .info{ background:#fff7e6; color:#7a4a00; }
-    .oce{ background:#dbeafe; color:#072f6b; }
-    .histo{ background:#d1fae5; color:#065f46; }
-    .anath{ background:#fce7f3; color:#9a1750; }
-    .anatd{ background:#ede9fe; color:#4c1d95; }
-    .proth{ background:#ffe4e6; color:#7f1d1d; }
-    .label{ display:inline-block; font-weight:700; padding:4px 8px; border-radius:6px; background:#111827; color:white; margin-left:8px; font-size:12px; }
-
-    footer{ text-align:center; padding:12px; margin-top:14px; color:var(--muted); font-size:14px; }
-
-    @media (max-width:640px){
-      body{ padding:12px; }
-      .logo{ height:56px; }
-      thead th:nth-child(4){ display:none; }
-      td, th{ padding:10px; font-size:14px; }
+    html,body{height:100%; margin:0; font-family:Inter, "Segoe UI", Arial, sans-serif; background:linear-gradient(#f6f8fb,#eef3fb); color:#0b1220; }
+    .wrap{max-width:980px; margin:28px auto; padding:18px;}
+    header{ text-align:left; padding:12px 0; }
+    header img{height:64px; vertical-align:middle}
+    header h1{display:inline-block; margin:0 0 0 12px; font-size:18px; vertical-align:middle; color:var(--accent)}
+    .card{background:var(--card); border-radius:10px; box-shadow:0 10px 30px rgba(10,20,40,0.06); overflow:hidden}
+    table{width:100%; border-collapse:collapse; direction:ltr;}
+    thead th{background:linear-gradient(90deg,var(--accent),#2f8ed6); color:#fff; padding:12px 10px; font-weight:700; text-align:left}
+    th, td{padding:12px 10px; border-bottom:1px solid #eef3f7; vertical-align:top; text-align:left; font-size:15px}
+    tbody tr:nth-child(even){background:#fbfdff}
+    .time{font-weight:700; color:var(--muted); width:160px}
+    .subject{display:inline-block; padding:6px 10px; border-radius:8px; font-weight:600}
+    .sub-info{background:#fff7e6;color:#7a4a00}
+    .sub-oce{background:#dbeafe;color:#073a6b}
+    .sub-histo{background:#d1fae5;color:#065f46}
+    .sub-ah{background:#fce7f3;color:#9a1750}
+    .sub-ad{background:#ede9fe;color:#4c1d95}
+    .sub-proth{background:#ffe4e6;color:#7f1d1d}
+    .note{font-size:13px;color:var(--muted); padding:10px 14px}
+    .rooms{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; padding:14px}
+    .room{background:#fbfdff;border-radius:8px;padding:10px;border:1px solid #eef2f7}
+    footer{font-size:13px;color:var(--muted); padding:12px; text-align:center}
+    .badge{display:inline-block;padding:4px 8px;border-radius:6px;background:#111827;color:#fff;font-weight:700;font-size:12px;margin-left:8px}
+    @media (max-width:720px){
+      thead th, th, td{font-size:14px}
+      header h1{display:block;margin:10px 0 0 0}
     }
   </style>
 </head>
 <body>
-  <header>
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/25/LOGO_UNIV_ORAN_1_Anglais.png?20200929110705" alt="Université d'Oran 1">
-    <h1>Faculté de Médecine - Département de Médecine Dentaire</h1>
-    <h2>Emploi du Temps (2ème année - Groupe C) </h2>
-  </header>
+  <div class="wrap">
+    <header>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/LOGO_UNIV_ORAN_1_Anglais.png?20200929110705" alt="Univ Oran 1">
+      <h1>Faculté de Médecine — Médecine Dentaire</h1>
+    </header>
 
-  <div class="container">
-    <table aria-labelledby="timetable">
-      <thead>
-        <tr>
-          <th>Jour</th>
-          <th class="time">08h30 – 10h30</th>
-          <th class="time">10h45 – 12h45</th>
-          <th>Lieu</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Dimanche</strong></td>
-          <td class="empty">—</td>
-          <td><span class="slot info">Informatique <span class="label">C</span></span></td>
-          <td rowspan="5">Faculté de Médecine</td>
-        </tr>
+    <div class="card" role="region" aria-label="Emploi du temps groupe C">
+      <table>
+        <thead>
+          <tr>
+            <th>Jour</th>
+            <th class="time">Heure</th>
+            <th>Matière / Info</th>
+            <th>Remarques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dimanche</strong></td>
+            <td class="time">10h45</td>
+            <td>
+              <span class="subject sub-info">Informatique</span>
+              <span class="badge">Tout le groupe</span>
+            </td>
+            <td>Salle : <strong>Informatique — TD 1er étage, salle 4</strong></td>
+          </tr>
 
-        <tr>
-          <td><strong>Lundi</strong></td>
-          <td class="empty">—</td>
-          <td><span class="slot oce">OC/E <span class="label">C</span></span></td>
-        </tr>
+          <tr>
+            <td><strong>Lundi</strong></td>
+            <td class="time">10h00</td>
+            <td>
+              <span class="subject sub-oce">OC</span>
+              <span class="badge">Tout le groupe</span>
+            </td>
+            <td>Remarque : <em>seulement cette semaine</em>. Salle : <strong>OC — TP 2ème étage à droite</strong></td>
+          </tr>
 
-        <tr>
-          <td><strong>Mardi</strong></td>
-          <td class="empty">—</td>
-          <td><span class="slot histo">Histo/Paro <span class="label">C</span></span></td>
-        </tr>
+          <tr>
+            <td><strong>Mardi</strong></td>
+            <td class="time">08h30</td>
+            <td>
+              <span class="subject sub-histo">Histologie</span>
+              <span class="badge">Tout le groupe</span>
+            </td>
+            <td>Salle : <strong>Histologie — TD 1er étage, salle 3</strong></td>
+          </tr>
 
-        <tr>
-          <td><strong>Mercredi</strong></td>
-          <td><span class="slot anath">Anatomie Humaine <span class="label">C</span></span></td>
-          <td><span class="slot anatd">Anatomie Dentaire <span class="label">C</span></span></td>
-        </tr>
+          <tr>
+            <td rowspan="2"><strong>Mercredi</strong></td>
+            <td class="time">08h30</td>
+            <td>
+              <span class="subject sub-ah">Anatomie Humaine (AH)</span>
+              <span class="badge">SG1 : étudiants 1 → 33</span>
+            </td>
+            <td>Salle : <strong>AH — TP 2ème étage à droite</strong></td>
+          </tr>
+          <tr>
+            <td class="time">10h45</td>
+            <td>
+              <span class="subject sub-ah">Anatomie Humaine (AH)</span>
+              <span class="badge">SG2 : étudiants 34 → 66</span>
+            </td>
+            <td>Salle : <strong>AH — TP 2ème étage à droite</strong></td>
+          </tr>
 
-        <tr>
-          <td><strong>Jeudi</strong></td>
-          <td><span class="slot proth">Prothèse <span class="label">C</span></span></td>
-          <td class="empty">—</td>
-        </tr>
-      </tbody>
-    </table>
+          <tr>
+            <td><strong>Jeudi</strong></td>
+            <td class="time">08h30</td>
+            <td>
+              <span class="subject sub-proth">Prothèse</span>
+              <span class="badge">Tout le groupe</span>
+            </td>
+            <td>Salle : <strong>Prothèse — TP 3ème étage à droite</strong></td>
+          </tr>
+        </tbody>
+      </table>
 
-    <p style="text-align:center; margin-top:12px; color:var(--muted)"></p>
+      <p class="note">
+        Remarques rapides :
+        <ul style="margin:8px 0 0 18px; padding:0; color:var(--muted)">
+          <li><strong>Dimanche</strong> : Informatique pour tout le groupe.</li>
+          <li><strong>Lundi 10h00</strong> : OC pour tout le groupe — session exceptionnelle (seulement cette semaine).</li>
+          <li><strong>Mardi 08h30</strong> : Histologie pour tout le groupe.</li>
+          <li><strong>Mercredi</strong> : AH divisé en 2 sous-groupes (SG1 = 1-33 à 08h30, SG2 = 34-66 à 10h45).</li>
+          <li><strong>Jeudi 08h30</strong> : Prothèse pour tout le groupe.</li>
+        </ul>
+      </p>
+
+      <div style="padding:10px 14px">
+        <h3 style="margin:6px 0 8px; color:var(--muted)">Plan des salles</h3>
+        <div class="rooms">
+          <div class="room"><strong>Histologie</strong><div style="margin-top:6px;color:var(--muted)">TD — 1er étage, salle 3</div></div>
+          <div class="room"><strong>Informatique</strong><div style="margin-top:6px;color:var(--muted)">TD — 1er étage, salle 4</div></div>
+          <div class="room"><strong>AD (Anatomie Dentaire)</strong><div style="margin-top:6px;color:var(--muted)">Salle TP — 2ème étage à droite</div></div>
+          <div class="room"><strong>AH (Anatomie Humaine)</strong><div style="margin-top:6px;color:var(--muted)">Salle TP — 2ème étage à droite</div></div>
+          <div class="room"><strong>Prothèse</strong><div style="margin-top:6px;color:var(--muted)">Salle TP — 3ème étage à droite</div></div>
+          <div class="room"><strong>OC</strong><div style="margin-top:6px;color:var(--muted)">Salle TP — 2ème étage à droite</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      &copy; 2025 Faculté de Médecine — Emploi du Temps (Groupe C)
+    </footer>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Université d'Oran 1 — Emploi du Temps Groupe C</p>
-  </footer>
-
   <script>
-    // Highlight today's row (optional UX): works if browser time and locale match
+    // simple: highlight today's rows (if campus timezone matches)
     (function(){
-      try{
-        const nameMap = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
-        const now = new Date();
-        const dayIndex = now.getDay(); // 0=Sun
-        const rows = document.querySelectorAll('tbody tr');
-        rows.forEach(r => {
-          if(r.children[0].textContent.trim() === nameMap[dayIndex]){
-            r.style.boxShadow = 'inset 0 0 0 3px rgba(11,116,218,0.08)';
-            r.style.background = '#fffef9';
-          }
-        });
-      }catch(e){/* ignore */}
+      const map = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+      const today = new Date().getDay(); // 0=Sun
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(tr=>{
+        const firstCell = tr.querySelector('td');
+        if(!firstCell) return;
+        const txt = firstCell.textContent.trim();
+        if(txt === map[today]){
+          tr.style.background = '#fffdf2';
+          tr.style.boxShadow = 'inset 0 0 0 3px rgba(11,116,218,0.06)';
+        }
+      });
     })();
   </script>
 </body>
