@@ -1,122 +1,130 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emploi du Temps - Médecine Dentaire (Groupe C)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emploi du Temps - Médecine Dentaire (Groupe C) - Corrigé</title>
   <style>
+    :root{
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --accent: #0b74da;
+      --muted: #6b7280;
+      --accent-dark: #0a66b3;
+    }
+    html,body{ height:100%; }
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f9fb;
-      color: #111;
-      direction: rtl;
+      font-family: "Segoe UI", Tahoma, Arial, "Noto Naskh Arabic", sans-serif;
+      margin: 0; padding: 24px; background: linear-gradient(180deg,var(--bg),#eef3f9 60%);
+      color: #111827; direction: ltr; -webkit-font-smoothing:antialiased;
     }
-    header {
-      text-align: center;
-      padding: 20px;
-      background: #0b74da;
-      color: white;
-    }
-    .logo-container {
-      margin-bottom: 10px;
-    }
-    .logo {
-      height: 80px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 15px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-    }
-    thead th {
-      background: #0b74da;
-      color: white;
-      padding: 12px;
-      text-align: center;
-    }
-    td, th {
-      padding: 12px;
-      border: 1px solid #ddd;
-      text-align: center;
-    }
-    tbody tr:nth-child(even) {
-      background: #f1f7ff;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      background: #e9ecef;
-      font-size: 14px;
-      color: #555;
+    .container{ max-width:980px; margin:18px auto; }
+    header{ text-align:center; padding:14px 8px; }
+    .logo{ height:72px; display:block; margin:0 auto 8px auto; }
+    h1{ margin:6px 0 2px; color:var(--accent-dark); font-size:20px; }
+    h2{ margin:0; color:var(--muted); font-weight:500; }
+
+    table{ width:100%; border-collapse:collapse; background:var(--card); box-shadow:0 6px 18px rgba(10,10,30,0.06); border-radius:10px; overflow:hidden; }
+    thead th{ background:linear-gradient(90deg,var(--accent) 0%, #2f8ed6 100%); color:white; padding:14px 10px; text-align:center; font-weight:600; }
+    th, td{ padding:12px 10px; border-bottom:1px solid #eef2f7; text-align:center; font-size:15px; }
+    tbody tr:nth-child(even){ background:#fbfdff; }
+    .time{ font-weight:700; color:var(--muted); font-size:13px; }
+    .slot{ padding:8px 10px; border-radius:8px; display:inline-block; min-width:120px; }
+    .empty{ color:#9ca3af; font-style:italic; }
+
+    /* colors for subjects */
+    .info{ background:#fff7e6; color:#7a4a00; }
+    .oce{ background:#dbeafe; color:#072f6b; }
+    .histo{ background:#d1fae5; color:#065f46; }
+    .anath{ background:#fce7f3; color:#9a1750; }
+    .anatd{ background:#ede9fe; color:#4c1d95; }
+    .proth{ background:#ffe4e6; color:#7f1d1d; }
+    .label{ display:inline-block; font-weight:700; padding:4px 8px; border-radius:6px; background:#111827; color:white; margin-left:8px; font-size:12px; }
+
+    footer{ text-align:center; padding:12px; margin-top:14px; color:var(--muted); font-size:14px; }
+
+    @media (max-width:640px){
+      body{ padding:12px; }
+      .logo{ height:56px; }
+      thead th:nth-child(4){ display:none; }
+      td, th{ padding:10px; font-size:14px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/LOGO_UNIV_ORAN_1_Anglais.png?20200929110705" 
-           alt="Université d'Oran 1" class="logo">
-    </div>
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/25/LOGO_UNIV_ORAN_1_Anglais.png?20200929110705" alt="Université d'Oran 1">
     <h1>Faculté de Médecine - Département de Médecine Dentaire</h1>
-    <h2>Emploi du Temps (2ème année, Groupe C) - 25/26</h2>
+    <h2>Emploi du Temps (2ème année - Groupe C) — Corrigé</h2>
   </header>
 
   <div class="container">
-    <table>
+    <table aria-labelledby="timetable">
       <thead>
         <tr>
           <th>Jour</th>
-          <th>08h30 - 10h30</th>
-          <th>10h45 - 12h45</th>
+          <th class="time">08h30 – 10h30</th>
+          <th class="time">10h45 – 12h45</th>
           <th>Lieu</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Dimanche</td>
-          <td>---</td>
-          <td>Informatique</td>
+          <td><strong>Dimanche</strong></td>
+          <td class="empty">—</td>
+          <td><span class="slot info">Informatique <span class="label">C</span></span></td>
           <td rowspan="5">Faculté de Médecine</td>
         </tr>
+
         <tr>
-          <td>Lundi</td>
-          <td>OC/E</td>
-          <td>---</td>
+          <td><strong>Lundi</strong></td>
+          <td class="empty">—</td>
+          <td><span class="slot oce">OC/E <span class="label">C</span></span></td>
         </tr>
+
         <tr>
-          <td>Mardi</td>
-          <td>---</td>
-          <td>Histo/Paro</td>
+          <td><strong>Mardi</strong></td>
+          <td class="empty">—</td>
+          <td><span class="slot histo">Histo/Paro <span class="label">C</span></span></td>
         </tr>
+
         <tr>
-          <td>Mercredi</td>
-          <td>Anatomie Humaine</td>
-          <td>Anatomie Dentaire</td>
+          <td><strong>Mercredi</strong></td>
+          <td><span class="slot anath">Anatomie Humaine <span class="label">C</span></span></td>
+          <td><span class="slot anatd">Anatomie Dentaire <span class="label">C</span></span></td>
         </tr>
+
         <tr>
-          <td>Jeudi</td>
-          <td>Prothèse</td>
-          <td>---</td>
+          <td><strong>Jeudi</strong></td>
+          <td><span class="slot proth">Prothèse <span class="label">C</span></span></td>
+          <td class="empty">—</td>
         </tr>
       </tbody>
     </table>
+
+    <p style="text-align:center; margin-top:12px; color:var(--muted)">تصحيح: تمّ تعديل الجدول ليعرض من اليسار إلى اليمين.</p>
   </div>
 
   <footer>
-    <p>&copy; 2025 Université d'Oran 1. Tous droits réservés.</p>
+    <p>&copy; 2025 Université d'Oran 1 — Emploi du Temps Groupe C</p>
   </footer>
 
   <script>
-    console.log("Emploi du Temps Groupe C chargé avec succès !");
+    // Highlight today's row (optional UX): works if browser time and locale match
+    (function(){
+      try{
+        const nameMap = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+        const now = new Date();
+        const dayIndex = now.getDay(); // 0=Sun
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(r => {
+          if(r.children[0].textContent.trim() === nameMap[dayIndex]){
+            r.style.boxShadow = 'inset 0 0 0 3px rgba(11,116,218,0.08)';
+            r.style.background = '#fffef9';
+          }
+        });
+      }catch(e){/* ignore */}
+    })();
   </script>
 </body>
 </html>
